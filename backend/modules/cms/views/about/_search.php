@@ -19,13 +19,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'about_content') ?>
 
-    <?= $form->field($model, 'who_we_are') ?>
+    <?= $form->field($model, 'year_of_experience') ?>
 
-    <?= $form->field($model, 'what_we_are') ?>
+    <?= $form->field($model, 'image') ?>
 
-    <?= $form->field($model, 'our_approach') ?>
+    <?= $form->field($model, 'image_title') ?>
 
-    <?php // echo $form->field($model, 'why_choose_cda') ?>
+    <?php // echo $form->field($model, 'description') ?>
+
+    <?php // echo $form->field($model, 'why_coral_aroma') ?>
+
+    <?php // echo $form->field($model, 'director_name') ?>
+
+    <?php // echo $form->field($model, 'director_image') ?>
+
+    <?php // echo $form->field($model, 'director_message') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 

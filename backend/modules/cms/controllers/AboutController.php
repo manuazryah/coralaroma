@@ -8,6 +8,7 @@ use common\models\AboutSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * AboutController implements the CRUD actions for About model.
@@ -90,13 +91,33 @@ class AboutController extends Controller {
     public function actionUpdate() {
         $id = 1;
         $model = $this->findModel($id);
+        $model_ = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model) && $model->save()) {
-            Yii::$app->session->setFlash('success', "Content updated successfully");
-            return $this->redirect(['update']);
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+            $image = UploadedFile::getInstance($model, 'image');
+            $director_image = UploadedFile::getInstance($model, 'director_image');
+            $model->image = !empty($image) ? $image->extension : $model_->image;
+            $model->director_image = !empty($director_image) ? $director_image->extension : $model_->director_image;
+            if ($model->validate() && $model->save()) {
+                $this->Upload($image, $director_image);
+                Yii::$app->session->setFlash('success', "Content updated successfully");
+            }
         } return $this->render('update', [
                     'model' => $model,
         ]);
+    }
+
+    public function Upload($image, $director_image) {
+        $paths = Yii::$app->basePath . '/../uploads/about/';
+        if (!empty($image)) {
+            $name = 'about_image.' . $image->extension;
+            $image->saveAs($paths . '/' . $name);
+        }
+        if (!empty($director_image)) {
+            $name = 'director_image.' . $director_image->extension;
+            $director_image->saveAs($paths . '/' . $name);
+        }
+        return TRUE;
     }
 
     /**

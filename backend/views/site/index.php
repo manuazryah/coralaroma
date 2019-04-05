@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'CDA';
+$this->title = 'Coral Aroma';
 ?>
 <style>
     .outer {

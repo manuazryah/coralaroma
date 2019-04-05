@@ -18,8 +18,8 @@ class AboutSearch extends About
     public function rules()
     {
         return [
-            [['id', 'status', 'CB', 'UB'], 'integer'],
-            [['about_content', 'who_we_are', 'what_we_are', 'our_approach', 'why_choose_cda', 'DOC', 'DOU'], 'safe'],
+            [['id', 'year_of_experience', 'status', 'CB', 'UB'], 'integer'],
+            [['about_content', 'image', 'image_title', 'description', 'why_coral_aroma', 'director_name', 'director_image', 'director_message', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -60,6 +60,7 @@ class AboutSearch extends About
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'year_of_experience' => $this->year_of_experience,
             'status' => $this->status,
             'CB' => $this->CB,
             'UB' => $this->UB,
@@ -68,10 +69,13 @@ class AboutSearch extends About
         ]);
 
         $query->andFilterWhere(['like', 'about_content', $this->about_content])
-            ->andFilterWhere(['like', 'who_we_are', $this->who_we_are])
-            ->andFilterWhere(['like', 'what_we_are', $this->what_we_are])
-            ->andFilterWhere(['like', 'our_approach', $this->our_approach])
-            ->andFilterWhere(['like', 'why_choose_cda', $this->why_choose_cda]);
+            ->andFilterWhere(['like', 'image', $this->image])
+            ->andFilterWhere(['like', 'image_title', $this->image_title])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'why_coral_aroma', $this->why_coral_aroma])
+            ->andFilterWhere(['like', 'director_name', $this->director_name])
+            ->andFilterWhere(['like', 'director_image', $this->director_image])
+            ->andFilterWhere(['like', 'director_message', $this->director_message]);
 
         return $dataProvider;
     }

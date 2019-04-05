@@ -9,10 +9,14 @@ use Yii;
  *
  * @property int $id
  * @property string $about_content
- * @property string $who_we_are
- * @property string $what_we_are
- * @property string $our_approach
- * @property string $why_choose_cda
+ * @property int $year_of_experience
+ * @property string $image
+ * @property string $image_title
+ * @property string $description
+ * @property string $why_coral_aroma
+ * @property string $director_name
+ * @property string $director_image
+ * @property string $director_message
  * @property int $status
  * @property int $CB
  * @property int $UB
@@ -33,10 +37,13 @@ class About extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['about_content', 'who_we_are', 'what_we_are', 'our_approach', 'why_choose_cda'], 'string'],
-            [['about_content', 'who_we_are', 'what_we_are', 'our_approach', 'why_choose_cda', 'social_responsibility', 'vision_mission'], 'required'],
-            [['status', 'CB', 'UB'], 'integer'],
+            [['about_content', 'why_coral_aroma', 'director_message'], 'string'],
+            [['about_content', 'why_coral_aroma', 'director_message', 'year_of_experience', 'image_title', 'description', 'director_name'], 'required'],
+            [['year_of_experience', 'status', 'CB', 'UB'], 'integer'],
             [['DOC', 'DOU'], 'safe'],
+            [['image_title', 'description', 'director_name'], 'string', 'max' => 100],
+            [['image', 'director_image'], 'required', 'on' => 'create'],
+            [['image', 'director_image'], 'file', 'extensions' => 'jpg, png,jpeg'],
         ];
     }
 
@@ -47,11 +54,14 @@ class About extends \yii\db\ActiveRecord {
         return [
             'id' => 'ID',
             'about_content' => 'About Content',
-            'who_we_are' => 'Who We Are',
-            'what_we_are' => 'What We Are',
-            'our_approach' => 'Our Approach',
-            'vision_mission' => 'Vision & Mission',
-            'why_choose_cda' => 'Why Choose Cda',
+            'year_of_experience' => 'Year Of Experience',
+            'image' => 'Image',
+            'image_title' => 'Image Title',
+            'description' => 'Description',
+            'why_coral_aroma' => 'Why Coral Aroma',
+            'director_name' => 'Director Name',
+            'director_image' => 'Director Image',
+            'director_message' => 'Director Message',
             'status' => 'Status',
             'CB' => 'C B',
             'UB' => 'U B',

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\About */
 
-$this->title = 'Update About';
+$this->title = 'Update About Page Content';
 $this->params['breadcrumbs'][] = ['label' => 'Abouts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
             </div>
             <div class="panel-body">
+                <?= Html::a('<i class="fa fa-list"></i><span> Manage About</span>', ['index'], ['class' => 'btn btn-block btn-info btn-sm']) ?>
                 <div class="about-create">
                     <?=
                     $this->render('_form', [

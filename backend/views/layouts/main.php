@@ -35,7 +35,7 @@ $controler = Yii::$app->controller->id;
                         <img src="<?= Yii::$app->homeUrl; ?>img/favicon.png" itemprop="image">
                     </span>
                     <span class="logo-lg">
-                        <img src="<?= Yii::$app->homeUrl; ?>img/logo.png" itemprop="image">
+                        <img src="<?= Yii::$app->homeUrl; ?>img/logo1.png" itemprop="image">
                     </span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->

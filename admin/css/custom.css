@@ -50,7 +50,7 @@ and open the template in the editor.
     margin: 0 auto;
 }
 .login-box-body, .register-box-body {
-    background: #ffffff78;
+    background: #4d5154d4;
     padding: 20px;
     border-top: 0;
     color: #fff;
@@ -72,7 +72,7 @@ and open the template in the editor.
 .login-box .has-feedback label~.form-control-feedback {
     top: 25px;
     left: 0px;
-    color: #306091;
+    color: #74a235;
 }
 #login-form .form-group.has-error .help-block {
     color: #a54a3f;
@@ -87,20 +87,19 @@ and open the template in the editor.
     width: 100%;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background-color: #3f6d9e;
-    border-color: #3f6d9e;
+    background-color: #8dc63f;
+    border-color: #8dc63f;
     outline: none;
     padding: 8px 12px;
 }
 #login-form .form-group .btn-primary:hover{
-    background-color: #16487b;
-    border-color: #16487b;
+    background-color: #74a235;
+    border-color: #74a235;
     outline: none;
 }
 .main-header .logo-lg img{
-    width: 135px;
+    width: 62px;
     margin: 0 auto;
-    padding-top: 5px;
 }
 .main-header {
     background: rgba(0, 0, 0, 0.40);
@@ -110,30 +109,30 @@ and open the template in the editor.
     margin: 0 auto;
 }
 .skin-blue .main-header .navbar {
-    background-color: #87979c;
+    background-color: #4d5154d4;
 }
 .skin-blue .main-header .logo {
-    background-color: #778488;
+    background-color: #4d5154d4;
     color: #fff;
     border-bottom: 0 solid transparent;
 }
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-    background-color: #87979c;
+    background-color: #4d5154d4;
 }
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a {
     color: #fff;
-    background: #768488;
+    background: #3f4346d4;
 }
 .skin-blue .sidebar-menu>li>.treeview-menu {
     margin: 0 1px;
-    background: #94a4a9;
+    background: #697075d4;
 }
 .skin-blue .sidebar-menu>li.header {
-    color: #4b646f;
-    background: #87979c;
+    color: #4d5154d4;
+    background: #4d5154d4;
 }
 .skin-blue .main-header .logo:hover {
-    background-color: #778488;
+    background-color: #4d5154d4;
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
     background-color: #586265;
@@ -147,7 +146,7 @@ and open the template in the editor.
 }
 .signout-btn {
     padding: 13px 18px;
-    background: #87979c;
+    background: #4d5154d4;
     border: none;
     color: #fff;
     font-weight: 600;
@@ -187,9 +186,9 @@ and open the template in the editor.
     padding: 0px 5px;
 }
 .panel-default>.panel-heading {
-    color: #fff;
-    background-color: #107ac1;
-    border-color: #0f79c1;
+    color: #333;
+    background-color: #ffffff;
+    border-color: #ddd;
 }
 .img-content{
     margin-top: 20px;
