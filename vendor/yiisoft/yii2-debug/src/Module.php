@@ -10,12 +10,12 @@ namespace yii\debug;
 use Yii;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
-use yii\helpers\Html;
 use yii\helpers\Json;
-use yii\helpers\Url;
-use yii\web\ForbiddenHttpException;
 use yii\web\Response;
+use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
+use yii\web\ForbiddenHttpException;
 
 /**
  * The Yii Debug Module provides the debug toolbar and debugger
@@ -144,7 +144,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     /**
      * {@inheritdoc}
-     * @throws \yii\base\InvalidConfigException
      */
     public function init()
     {
@@ -158,7 +157,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     /**
      * Initializes panels.
-     * @throws \yii\base\InvalidConfigException
      */
     protected function initPanels()
     {
@@ -193,7 +191,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        /* @var $app \yii\base\Application */
         $this->logTarget = $app->getLog()->targets['debug'] = new LogTarget($this);
 
         // delay attaching event handler to the view component after it is fully configured
@@ -220,8 +217,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     /**
      * {@inheritdoc}
-     * @throws \yii\base\InvalidConfigException
-     * @throws ForbiddenHttpException
      */
     public function beforeAction($action)
     {
@@ -264,8 +259,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
         if (!$this->checkAccess()) {
             return;
         }
-        $url = Url::toRoute([
-            '/' . $this->id . '/default/view',
+        $url = Url::toRoute(['/' . $this->id . '/default/view',
             'tag' => $this->logTarget->tag,
         ]);
         $event->sender->getHeaders()
@@ -288,8 +282,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public function getToolbarHtml()
     {
-        $url = Url::toRoute([
-            '/' . $this->id . '/default/toolbar',
+        $url = Url::toRoute(['/' . $this->id . '/default/toolbar',
             'tag' => $this->logTarget->tag,
         ]);
         return '<div id="yii-debug-toolbar" data-url="' . Html::encode($url) . '" style="display:none" class="yii-debug-toolbar-bottom"></div>';
@@ -299,7 +292,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
      * Renders mini-toolbar at the end of page body.
      *
      * @param \yii\base\Event $event
-     * @throws \Throwable
      */
     public function renderToolbar($event)
     {
@@ -312,8 +304,8 @@ class Module extends \yii\base\Module implements BootstrapInterface
         echo $view->renderDynamic('return Yii::$app->getModule("' . $this->id . '")->getToolbarHtml();');
 
         // echo is used in order to support cases where asset manager is not available
-        echo '<style>' . $view->renderPhpFile(__DIR__ . '/assets/css/toolbar.css') . '</style>';
-        echo '<script>' . $view->renderPhpFile(__DIR__ . '/assets/js/toolbar.js') . '</script>';
+        echo '<style>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.css') . '</style>';
+        echo '<script>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.js') . '</script>';
     }
 
     /**
@@ -334,9 +326,9 @@ class Module extends \yii\base\Module implements BootstrapInterface
                 return true;
             }
         }
-        if (!$this->disableIpRestrictionWarning) {
-            Yii::warning('Access to debugger is denied due to IP address restriction. The requesting IP address is ' . $ip, __METHOD__);
-        }
+		if (!$this->disableIpRestrictionWarning) {
+			Yii::warning('Access to debugger is denied due to IP address restriction. The requesting IP address is ' . $ip, __METHOD__);
+		}
         return false;
     }
 

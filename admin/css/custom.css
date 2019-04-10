@@ -198,8 +198,8 @@ and open the template in the editor.
 .gal-img-remove .fa-remove{
     font-weight: 600;
     position: absolute;
-    top: 23px;
-    right: 24px;
+    top: 0px;
+    right: 17px;
     color: red;
 }
 /******************** TAB CSS **********************************/
@@ -264,4 +264,8 @@ and open the template in the editor.
     padding: 0 20px 20px 20px;
     font-size: 16px;
     color: white;
+}
+.img-box .news-img{
+    border: 1px solid #e0dede;
+    padding: 14px 14px 11px 13px;
 }

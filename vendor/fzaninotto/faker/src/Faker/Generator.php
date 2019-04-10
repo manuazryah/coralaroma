@@ -33,7 +33,6 @@ namespace Faker;
  * @property string $isbn10
  *
  * @property string $phoneNumber
- * @property string $e164PhoneNumber
  *
  * @property string $company
  * @property string $companySuffix
@@ -114,7 +113,7 @@ namespace Faker;
  * @method string year($max = 'now')
  * @method \DateTime dateTime($max = 'now', $timezone = null)
  * @method \DateTime dateTimeAd($max = 'now', $timezone = null)
- * @method \DateTime dateTimeBetween($startDate = '-30 years', $endDate = 'now', $timezone = null)
+ * @method \DateTime dateTimeBetween($startDate = '-30 years', $endDate = 'now')
  * @method \DateTime dateTimeInInterval($date = '-30 years', $interval = '+5 days', $timezone = null)
  * @method \DateTime dateTimeThisCentury($max = 'now', $timezone = null)
  * @method \DateTime dateTimeThisDecade($max = 'now', $timezone = null)
@@ -278,10 +277,5 @@ class Generator
     public function __call($method, $attributes)
     {
         return $this->format($method, $attributes);
-    }
-
-    public function __destruct()
-    {
-        $this->seed();
     }
 }

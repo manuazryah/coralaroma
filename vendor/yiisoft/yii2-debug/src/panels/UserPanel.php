@@ -9,14 +9,16 @@ namespace yii\debug\panels;
 
 use Yii;
 use yii\base\Controller;
-use yii\base\InvalidConfigException;
 use yii\base\Model;
+use yii\base\InvalidConfigException;
 use yii\data\ArrayDataProvider;
 use yii\data\DataProviderInterface;
+use yii\db\ActiveRecord;
 use yii\debug\controllers\UserController;
 use yii\debug\models\search\UserSearchInterface;
 use yii\debug\models\UserSwitch;
 use yii\debug\Panel;
+use yii\filters\AccessControl;
 use yii\filters\AccessRule;
 use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
@@ -26,8 +28,8 @@ use yii\web\User;
 /**
  * Debugger panel that collects and displays user data.
  *
- * @property DataProviderInterface $userDataProvider Get model for GridView -> DataProvider. This property is read-only.
- * @property Model|UserSearchInterface $usersFilterModel Get model for GridView -> FilterModel. This property is read-only.
+ * @property DataProviderInterface $userDataProvider This property is read-only.
+ * @property Model|UserSearchInterface $usersFilterModel This property is read-only.
  *
  * @author Daniel Gomez Pan <pana_1990@hotmail.com>
  * @since 2.0.8
@@ -71,7 +73,6 @@ class UserPanel extends Panel
 
     /**
      * {@inheritdoc}
-     * @throws InvalidConfigException
      */
     public function init()
     {
@@ -97,7 +98,6 @@ class UserPanel extends Panel
     /**
      * @return User|null
      * @since 2.0.13
-     * @throws InvalidConfigException
      */
     public function getUser()
     {
@@ -108,7 +108,6 @@ class UserPanel extends Panel
     /**
      * Add ACF rule. AccessControl attach to debug module.
      * Access rule for main user.
-     * @throws InvalidConfigException
      */
     private function addAccessRules()
     {
@@ -160,7 +159,6 @@ class UserPanel extends Panel
     /**
      * Check can main user switch identity.
      * @return bool
-     * @throws InvalidConfigException
      */
     public function canSwitchUser()
     {

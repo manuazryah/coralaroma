@@ -114,6 +114,21 @@ $controler = Yii::$app->controller->id;
                         <li class="<?= $controler == 'scent-marketing' ? 'active' : '' ?>">
                             <?= Html::a('<i class="fa fa-cart-plus"></i> <span>Scent Marketing</span>', ['/cms/scent-marketing/index'], ['class' => 'title']) ?>
                         </li>
+                        <li class="treeview <?= $controler == 'products' || $controler == 'product-category' ? 'active' : '' ?>">
+                            <a href="">
+                                <i class="fa fa-product-hunt"></i>
+                                <span>Products</span>
+                                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Product Category', ['/cms/product-category/index'], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Products', ['/cms/products/index'], ['class' => 'title']) ?>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="<?= $controler == 'signature-scent' ? 'active' : '' ?>">
                             <?= Html::a('<i class="fa fa-inbox"></i> <span>Signature Scent</span>', ['/cms/signature-scent/update'], ['class' => 'title']) ?>
                         </li>

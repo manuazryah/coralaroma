@@ -83,6 +83,9 @@
                 var $e = $(this);
                 var settings = $.extend({}, defaults, options || {});
                 var id = $e.attr('id');
+                if (!settings.filterOnFocusOut) {
+                    return false;
+                }
                 if (gridData[id] === undefined) {
                     gridData[id] = {};
                 }
@@ -104,9 +107,6 @@
                             enterPressed = false;
                             return;
                         }
-                    }
-                    if (!settings.filterOnFocusOut && event.type !== 'keydown') {
-                        return false;
                     }
 
                     methods.applyFilter.apply($e);

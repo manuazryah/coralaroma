@@ -8,10 +8,10 @@
 namespace yii\debug\panels;
 
 use Yii;
-use yii\debug\models\search\Log;
 use yii\debug\Panel;
 use yii\helpers\VarDumper;
 use yii\log\Logger;
+use yii\debug\models\search\Log;
 
 /**
  * Debugger panel that collects and displays logs.
@@ -102,7 +102,7 @@ class LogPanel extends Panel
                     'level' => $message[1],
                     'category' => $message[2],
                     'time' => $message[3] * 1000, // time in milliseconds
-                    'trace' => isset($message[4]) ? $message[4] : [],
+                    'trace' => $message[4]
                 ];
             }
         }

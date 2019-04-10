@@ -44,7 +44,6 @@ class LogTarget extends Target
     /**
      * Exports log messages to a specific destination.
      * Child classes must implement this method.
-     * @throws \yii\base\Exception
      */
     public function export()
     {
@@ -121,7 +120,6 @@ class LogTarget extends Target
      * @param array $messages log messages to be processed. See [[\yii\log\Logger::messages]] for the structure
      * of each message.
      * @param bool $final whether this method is called at the end of the current application
-     * @throws \yii\base\Exception
      */
     public function collect($messages, $final)
     {
@@ -162,7 +160,7 @@ class LogTarget extends Target
     protected function collectSummary()
     {
         if (Yii::$app === null) {
-            return [];
+            return '';
         }
 
         $request = Yii::$app->getRequest();
