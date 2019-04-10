@@ -10,24 +10,22 @@ use common\models\BanerImages;
 /**
  * BanerImagesSearch represents the model behind the search form about `common\models\BanerImages`.
  */
-class BanerImagesSearch extends BanerImages
-{
+class BanerImagesSearch extends BanerImages {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'status', 'CB', 'UB'], 'integer'],
-            [['about', 'mgvision_difference', 'sustainability', 'security_market', 'customer_stories', 'corporate_governance', 'products_and_solutions', 'where_to_buy', 'search_result', 'partners', 'careers', 'news_events', 'contact', 'DOC', 'DOU'], 'safe'],
+            [['about', 'scent_marketing', 'products', 'blog', 'contact_us', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,8 +37,7 @@ class BanerImagesSearch extends BanerImages
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = BanerImages::find();
 
         // add conditions that should always apply here
@@ -67,20 +64,9 @@ class BanerImagesSearch extends BanerImages
             'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'about', $this->about])
-            ->andFilterWhere(['like', 'mgvision_difference', $this->mgvision_difference])
-            ->andFilterWhere(['like', 'sustainability', $this->sustainability])
-            ->andFilterWhere(['like', 'security_market', $this->security_market])
-            ->andFilterWhere(['like', 'customer_stories', $this->customer_stories])
-            ->andFilterWhere(['like', 'corporate_governance', $this->corporate_governance])
-            ->andFilterWhere(['like', 'products_and_solutions', $this->products_and_solutions])
-            ->andFilterWhere(['like', 'where_to_buy', $this->where_to_buy])
-            ->andFilterWhere(['like', 'search_result', $this->search_result])
-            ->andFilterWhere(['like', 'partners', $this->partners])
-            ->andFilterWhere(['like', 'careers', $this->careers])
-            ->andFilterWhere(['like', 'news_events', $this->news_events])
-            ->andFilterWhere(['like', 'contact', $this->contact]);
+        $query->andFilterWhere(['like', 'about', $this->about]);
 
         return $dataProvider;
     }
+
 }

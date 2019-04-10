@@ -15,6 +15,17 @@ use yii\web\UploadedFile;
  */
 class HomeContentsController extends Controller {
 
+    public function beforeAction($action) {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/site/index']);
+            return false;
+        }
+        return true;
+    }
+
     /**
      * @inheritdoc
      */
@@ -78,37 +89,39 @@ class HomeContentsController extends Controller {
      * @return mixed
      */
     public function actionUpdate() {
-        $id = 1;
-        $model = $this->findModel($id);
-        $image_ = $model->ceo_image;
-        $brochure_ = $model->brochure;
+        $model = $this->findModel(1);
+        $model_ = $this->findModel(1);
         if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-            $image = UploadedFile::getInstance($model, 'ceo_image');
-            $brochure = UploadedFile::getInstance($model, 'brochure');
-            $model->ceo_image = !empty($image) ? $image->extension : $image_;
-            $model->brochure = !empty($brochure) ? $brochure->extension : $brochure_;
-            if ($model->validate() && $model->save()) {
-                $this->Upload($model, $image, $brochure);
-                Yii::$app->session->setFlash('success', "Content updated successfully");
+            $image = UploadedFile::getInstance($model, 'welcome_image');
+            $image1 = UploadedFile::getInstance($model, 'image1');
+            $image2 = UploadedFile::getInstance($model, 'image2');
+            $model->welcome_image = !empty($image) ? $image->extension : $model_->welcome_image;
+            $model->image1 = !empty($image1) ? $image1->extension : $model_->image1;
+            $model->image2 = !empty($image2) ? $image2->extension : $model_->image2;
+            if ($model->save()) {
+                $this->Upload($image, $image1, $image2, $model);
+                Yii::$app->getSession()->setFlash('success', 'Updated Successfully');
             }
-            return $this->redirect(['update']);
         } return $this->render('update', [
                     'model' => $model,
         ]);
     }
 
-    public function Upload($model, $image, $brochure) {
-        $paths = Yii::$app->basePath . '/../uploads/brochure/';
+    public function Upload($image, $image1, $image2, $model) {
+        $paths = Yii::$app->basePath . '/../uploads/home_contents';
         if (!empty($image)) {
-            $path = Yii::$app->basePath . '/../uploads/ceo_image/' . $model->id . '/';
-            $size = [['width' => 100, 'height' => 100, 'name' => 'small'], ['width' => 100, 'height' => 100, 'name' => 'image'],];
-            Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
+            $name = 'welcome_image.' . $image->extension;
+            $image->saveAs($paths . '/' . $name);
         }
-        if (!empty($brochure)) {
-            $name = 'cdaaudit.' . $brochure->extension;
-            $brochure->saveAs($paths . '/' . $name);
+        if (!empty($image1)) {
+            $name = 'image1.' . $image1->extension;
+            $image1->saveAs($paths . '/' . $name);
         }
-        return;
+        if (!empty($image2)) {
+            $name = 'image2.' . $image2->extension;
+            $image2->saveAs($paths . '/' . $name);
+        }
+        return TRUE;
     }
 
     /**

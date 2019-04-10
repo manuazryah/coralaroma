@@ -19,7 +19,7 @@ class ContactsInfoSearch extends ContactsInfo
     {
         return [
             [['id', 'status', 'CB', 'UB'], 'integer'],
-            [['contact_message', 'address', 'post_box', 'phone', 'email', 'web', 'map', 'DOC', 'DOU'], 'safe'],
+            [['address', 'phone', 'whatsapp', 'fax', 'email', 'map', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -67,12 +67,11 @@ class ContactsInfoSearch extends ContactsInfo
             'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'contact_message', $this->contact_message])
-            ->andFilterWhere(['like', 'address', $this->address])
-            ->andFilterWhere(['like', 'post_box', $this->post_box])
+        $query->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'whatsapp', $this->whatsapp])
+            ->andFilterWhere(['like', 'fax', $this->fax])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'web', $this->web])
             ->andFilterWhere(['like', 'map', $this->map]);
 
         return $dataProvider;

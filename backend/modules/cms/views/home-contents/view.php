@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\HomeContents */
 
-$this->title = $model->id;
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Home Contents', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -46,12 +46,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'linkedin_link',
             'youtube_link',
             'welcome_content:ntext',
-            'ceo_name',
-            'ceo_message:ntext',
-            'service_description:ntext',
-            'middle_title',
-            'middle_description:ntext',
-            'footer_about_content:ntext',
+            'year_of_experience',
+            'welcome_image',
+            'title',
+            'description',
+            'title1',
+            'description1',
+            'image1',
+            'title2',
+            'description2',
+            'image2',
             'footer_address:ntext',
             'status',
             'CB',

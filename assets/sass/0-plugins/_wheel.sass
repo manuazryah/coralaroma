@@ -1,0 +1,218 @@
+//SCENT MARKETING WHEEL
+
+#wheels
+  padding: 105px 0
+  margin: auto
+  @media only screen and (max-width:768px)
+    display: none
+.wheel
+  position: relative
+  width: 580px
+  height: 600px
+  background-color: #fff
+  margin: auto
+  a
+    display: block
+    &::after
+      content: ""
+      display: flex
+      clear: both
+  .poses
+    position: absolute
+    left: 0
+    right: 0
+    margin: auto
+    top: 176px
+
+  .head-1
+    position: absolute
+    left: 14px
+    top: 21px
+
+  .head-2
+    position: absolute
+    left: 230px
+    top: 6px
+
+  .head-3
+    position: absolute
+    left: 523px
+    top: 178px
+
+  .head-4
+    position: absolute
+    left: 229px
+    top: 440px
+
+  .head-5
+    position: absolute
+    left: 17px
+    top: 301px
+
+  .pos-1
+    position: absolute
+    left: 44px
+    top: 235px
+    z-index: 1
+
+  .pos-2
+    position: absolute
+    left: 62px
+    top: 147px
+    z-index: 2
+
+  .pos-3
+    position: absolute
+    left: 115px
+    top: 78px
+    z-index: 3
+
+  .pos-4
+    position: absolute
+    left: 191px
+    top: 40px
+    z-index: 4
+
+  .pos-5
+    position: absolute
+    left: 291px
+    top: 41px
+    z-index: 5
+
+  .pos-6
+    position: absolute
+    left: 336px
+    top: 75px
+    z-index: 6
+
+  .pos-7
+    position: absolute
+    left: 373px
+    top: 145px
+    z-index: 7
+
+  .pos-8
+    position: absolute
+    left: 395px
+    top: 239px
+    z-index: 8
+
+  .pos-9
+    position: absolute
+    left: 375px
+    top: 310px
+    z-index: 9
+
+  .pos-10
+    position: absolute
+    left: 335px
+    top: 355px
+    z-index: 10
+
+  .pos-11
+    position: absolute
+    left: 287px
+    top: 384px
+    z-index: 11
+
+  .pos-12
+    position: absolute
+    left: 190px
+    top: 384px
+    z-index: 12
+
+  .pos-13
+    position: absolute
+    left: 110px
+    top: 353px
+    z-index: 13
+
+  .pos-14
+    position: absolute
+    left: 69px
+    top: 309px
+    z-index: 14
+  img.ab
+    &:hover
+      transform: scale(1.1)
+      transition: all .5s ease
+
+#scent_marketing_page
+  #wheel-mobile
+    @media only screen and (min-width:768px)
+      display: none
+#wheel-mobile
+  padding: 105px 0
+  margin: auto
+  .collapse:not(.show)
+    display: none
+  .card
+    margin-bottom: 10px
+    border: none
+  .card-header
+    padding: 0px
+    margin-bottom: 0px
+  .card-link
+    display: block
+    color: #fff
+    font-size: 16px
+    font-weight: bold
+    text-transform: uppercase
+    padding: 20px 15px
+    padding-left: 25px
+    text-decoration: none
+    background: $basecolor2
+    letter-spacing: 1px
+    position: relative
+    &::before
+      content: ""
+      position: absolute
+      width: 35px
+      height: 35px
+      background-color: #fff
+      position: absolute
+      left: -20px
+      border-radius: 50%
+      top: 11px
+    &::after
+      display: inline-block
+      height: 20px
+      margin-left: 12px
+      top: 15px
+      width: 20px
+      position: absolute
+      transition: ease-in-out .3s
+      content: ""
+      right: 15px
+      filter: brightness(3)
+      background: url(../images/icons/minimize.png) no-repeat
+    &.collapsed::after
+      display: inline-block
+      height: 20px
+      margin-left: 12px
+      top: 15px
+      width: 20px
+      position: absolute
+      transition: ease-in-out .3s
+      content: ""
+      right: 15px
+      filter: brightness(3)
+      background: url(../images/icons/maximize.png) no-repeat
+  .other-range-box
+    padding: 20px
+    border: 1px solid rgba(3, 23, 37, 0.14901960784313725)
+    border-top: 0px
+    a
+      font-weight: 300
+      color: #333
+      font-size: 14px
+      line-height: 30px
+      text-transform: uppercase
+      position: relative
+      padding-left: 13px
+      &::before
+        content: "\f0da"
+        position: absolute
+        left: 0px
+        font-family: "Font Awesome 5 Free"
+        font-weight: 900

@@ -2,8 +2,8 @@ $(document).ready(function () {
     /*
      * Generate canonical name for service title
      */
-    $('#services-service_title').keyup(function () {
-        $('#services-canonical_name').val(slug($(this).val()));
+    $('#scentmarketing-title').keyup(function () {
+        $('#scentmarketing-canonical_name').val(slug($(this).val()));
     });
 
     /*
@@ -11,6 +11,10 @@ $(document).ready(function () {
      */
     $('#blogs-title').keyup(function () {
         $('#blogs-canonical_name').val(slug($(this).val()));
+    });
+
+    $('#recipients-recipient_name').keyup(function () {
+        $('#recipients-canonical_name').val(slug($(this).val()));
     });
 
 });

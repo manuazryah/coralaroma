@@ -1,0 +1,106 @@
+
+/*********************MAIN_SLIDER******************/
+.carousel-item
+  height: calc(100vh)
+  min-height: 350px
+  background: no-repeat center center scroll
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  @media only screen and (max-width:576px)
+    height: 370px
+
+
+
+#main-slider .carousel-item
+  background-position: center top
+
+#main-slider .carousel-caption
+  text-align: center
+  bottom: 160px
+  padding-top: 105px
+  padding-bottom: 60px
+  // position: relative
+  @media (max-width:768px) and (min-width:576px)
+    padding-top: 90px
+  @media only screen and (max-width:576px)
+    bottom: 20%
+    padding-top: 80px
+    padding-bottom: 50px
+  &::before
+    content: ""
+    position: absolute
+    top: 0px
+    margin: 0 auto
+    left: 0px
+    right: 0px
+    background: url(../images/icons/bell-top.png) no-repeat center
+    width: 100px
+    height: 78px
+  &::after
+    content: ""
+    position: absolute
+    bottom: 0px
+    margin: 0 auto
+    left: 0px
+    right: 0px
+    background: url(../images/icons/bell-foot.png) no-repeat center
+    width: 141px
+    height: 42px
+
+#main-slider .carousel-caption .lead
+  font-size: 28px
+  color: rgb(255, 255, 255)
+  line-height: 28px
+  margin-bottom: 15px
+  @media (max-width:768px) and (min-width:576px)
+    font-size: 20px
+  @media only screen and (max-width:576px)
+    font-size: 12px
+    margin-bottom: 5px
+
+#main-slider .carousel-caption .caption
+  font-size: 50px
+  color: rgb(255, 255, 255)
+  font-weight: 400
+  line-height: 60px
+  @media (max-width:768px) and (min-width:576px)
+    font-size: 32px
+    line-height: 32px
+  @media only screen and (max-width:576px)
+    font-size: 32px
+    line-height: 32px
+
+.carousel-indicators
+  height: 75px
+  width: 24px
+  right: 0px
+  left: auto
+  top: 45%
+  display: grid
+  margin-right: 60px
+  z-index: 1
+  @media only screen and (max-width:576px)
+    display: flex
+    height: 24px
+    width: 156px
+    top: auto
+    bottom: 15px
+    margin: 0 auto
+    left: 0px
+    right: 0px
+
+.carousel-indicators li
+  width: 5px
+  height: 5px
+  border-radius: 50%
+  background: rgb(114, 117, 119)
+  cursor: pointer
+  clear: both
+  display: block
+  margin-bottom: 25px
+  &:last-child
+    margin-bottom: 0px
+  &.active
+    background: $basecolor

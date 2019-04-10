@@ -8,11 +8,23 @@ use common\models\TestimonialsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TestimonialsController implements the CRUD actions for Testimonials model.
  */
 class TestimonialsController extends Controller {
+
+    public function beforeAction($action) {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/site/index']);
+            return false;
+        }
+        return true;
+    }
 
     /**
      * @inheritdoc
@@ -60,11 +72,19 @@ class TestimonialsController extends Controller {
      */
     public function actionCreate() {
         $model = new Testimonials();
-
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model) && $model->save()) {
-            Yii::$app->session->setFlash('success', "Testimonial created successfully");
-            $model = new Testimonials();
-        } return $this->render('create', [
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+            $image = UploadedFile::getInstance($model, 'image');
+            $model->image = $image->extension;
+            if ($model->validate() && $model->save()) {
+                if (!empty($image)) {
+                    $path = Yii::$app->basePath . '/../uploads/testimonial/' . $model->id . '/';
+                    $size = [['width' => 50, 'height' => 50, 'name' => 'small'], ['width' => 75, 'height' => 75, 'name' => 'image'],];
+                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
+                }
+                Yii::$app->session->setFlash('success', "New testimonial added successfully");
+                $model = new Testimonials();
+            }
+        }return $this->render('create', [
                     'model' => $model,
         ]);
     }
@@ -77,11 +97,21 @@ class TestimonialsController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model) && $model->save()) {
+        $image_ = $model->image;
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+            $image = UploadedFile::getInstance($model, 'image');
+            $model->image = !empty($image) ? $image->extension : $image_;
+            if ($model->validate() && $model->save()) {
+                if (!empty($image)) {
+                    $path = Yii::$app->basePath . '/../uploads/testimonial/' . $model->id . '/';
+                    $size = [['width' => 50, 'height' => 50, 'name' => 'small'], ['width' => 75, 'height' => 75, 'name' => 'image'],];
+                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
+                }
+            }
             Yii::$app->session->setFlash('success', "Testimonial updated successfully");
             return $this->redirect(['update', 'id' => $model->id]);
-        } return $this->render('update', [
+        }
+        return $this->render('update', [
                     'model' => $model,
         ]);
     }
@@ -93,9 +123,29 @@ class TestimonialsController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
-
+        if ($this->findModel($id)->delete()) {
+            $path = Yii::$app->basePath . '/../uploads/testimonial/' . $id;
+            $this->deleteDir($path);
+            Yii::$app->session->setFlash('success', "Testimonial removed successfully");
+        }
         return $this->redirect(['index']);
+    }
+
+    public function deleteDir($dirPath) {
+        if (is_dir($dirPath)) {
+            if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+                $dirPath .= '/';
+            }
+            $files = glob($dirPath . '*', GLOB_MARK);
+            foreach ($files as $file) {
+                if (is_dir($file)) {
+                    self::deleteDir($file);
+                } else {
+                    unlink($file);
+                }
+            }
+        }
+        rmdir($dirPath);
     }
 
     /**

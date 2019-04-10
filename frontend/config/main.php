@@ -25,7 +25,7 @@ return [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                    [
+                [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
@@ -39,7 +39,27 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
-                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
+                '<alias:index|about|contact|scent-marketing|products|signature-scent|blog>' => 'site/<alias>',
+                'recipient/<page>' => 'site/recipient',
+                'scent-marketing/<scent>' => 'site/scent-marketing-details',
+                'blog/<page>' => 'site/blog-details',
+            ],
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js' => []
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [],
+                ],
+                'dosamigos\google\maps\MapAsset' => [
+                    'options' => [
+                        'key' => 'AIzaSyAn8gxT-1o2u1ouEKd1O-o9idyl62NS_Y0',
+                        'language' => 'id',
+                        'version' => '3.1.18'
+                    ]
+                ]
             ],
         ],
     ],

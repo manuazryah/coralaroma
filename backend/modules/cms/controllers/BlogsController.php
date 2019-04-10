@@ -80,7 +80,7 @@ class BlogsController extends Controller {
             if ($model->validate() && $model->save()) {
                 if (!empty($image)) {
                     $path = Yii::$app->basePath . '/../uploads/blogs/' . $model->id . '/';
-                    $size = [['width' => 100, 'height' => 100, 'name' => 'small'], ['width' => 750, 'height' => 375, 'name' => 'image'],];
+                    $size = [['width' => 100, 'height' => 100, 'name' => 'small'], ['width' => 1920, 'height' => 1080, 'name' => 'image'],];
                     Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }
                 Yii::$app->session->setFlash('success', "New blog added successfully");
@@ -107,7 +107,7 @@ class BlogsController extends Controller {
             if ($model->validate() && $model->save()) {
                 if (!empty($image)) {
                     $path = Yii::$app->basePath . '/../uploads/blogs/' . $model->id . '/';
-                    $size = [['width' => 100, 'height' => 100, 'name' => 'small'], ['width' => 750, 'height' => 375, 'name' => 'image'],];
+                    $size = [['width' => 100, 'height' => 100, 'name' => 'small'], ['width' => 1920, 'height' => 1080, 'name' => 'image'],];
                     Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }
             }

@@ -93,7 +93,7 @@ $controler = Yii::$app->controller->id;
                                 </li>
                             </ul>
                         </li>
-                        <li class="treeview <?= $controler == 'slider' || $controler == 'home-contents' || $controler == 'affiliation' ? 'active' : '' ?>">
+                        <li class="treeview <?= $controler == 'slider' || $controler == 'home-contents' ? 'active' : '' ?>">
                             <a href="">
                                 <i class="fa fa-home"></i>
                                 <span>Home Management</span>
@@ -106,68 +106,28 @@ $controler = Yii::$app->controller->id;
                                 <li>
                                     <?= Html::a('<i class="fa fa-angle-double-right"></i> Home Contents', ['/cms/home-contents/update'], ['class' => 'title']) ?>
                                 </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Affiliations', ['/cms/affiliation/index'], ['class' => 'title']) ?>
-                                </li>
                             </ul>
                         </li>
                         <li class="<?= $controler == 'about' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-flag"></i> About', ['/cms/about/update'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-flag"></i> <span>About</span>', ['/cms/about/update'], ['class' => 'title']) ?>
                         </li>
-                        <li class="<?= $controler == 'services' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-server"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
+                        <li class="<?= $controler == 'scent-marketing' ? 'active' : '' ?>">
+                            <?= Html::a('<i class="fa fa-cart-plus"></i> <span>Scent Marketing</span>', ['/cms/scent-marketing/index'], ['class' => 'title']) ?>
                         </li>
-                        <li class="<?= $controler == 'why-cda' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-info-circle"></i> Why CDA', ['/cms/why-cda/update'], ['class' => 'title']) ?>
-                        </li>
-                        <li class="<?= $controler == 'our-team' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-group"></i> Our Team', ['/cms/our-team/update'], ['class' => 'title']) ?>
+                        <li class="<?= $controler == 'signature-scent' ? 'active' : '' ?>">
+                            <?= Html::a('<i class="fa fa-inbox"></i> <span>Signature Scent</span>', ['/cms/signature-scent/update'], ['class' => 'title']) ?>
                         </li>
                         <li class="<?= $controler == 'blogs' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-rss"></i> Blogs', ['/cms/blogs/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-rss"></i> <span>Blogs</span>', ['/cms/blogs/index'], ['class' => 'title']) ?>
                         </li>
-                        <li class="<?= $controler == 'news' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-newspaper-o"></i> News', ['/cms/news/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li class="<?= $controler == 'clients' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-users"></i> Clients', ['/cms/clients/index'], ['class' => 'title']) ?>
+                        <li class="<?= $controler == 'recipients' ? 'active' : '' ?>">
+                            <?= Html::a('<i class="fa fa-cogs"></i> <span>Recipients</span>', ['/cms/recipients/index'], ['class' => 'title']) ?>
                         </li>
                         <li class="<?= $controler == 'testimonials' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-commenting-o"></i> Testimonials', ['/cms/testimonials/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li class="treeview <?= $controler == 'conditions' ? 'active' : '' ?>">
-                            <a href="">
-                                <i class="fa fa-list-alt"></i>
-                                <span>Conditions</span>
-                                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Privacy Policy', ['/cms/conditions/update', 'id' => 1], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Terms & Conditions', ['/cms/conditions/update', 'id' => 2], ['class' => 'title']) ?>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview <?= $controler == 'career-content' || $controler == 'job-openings' ? 'active' : '' ?>">
-                            <a href="">
-                                <i class="fa fa-graduation-cap"></i>
-                                <span>Careers</span>
-                                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Career Contents', ['/cms/career-content/update', 'id' => 1], ['class' => 'title']) ?>
-                                </li>
-
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Job Openings', ['/cms/job-openings/index'], ['class' => 'title']) ?>
-                                </li>
-                            </ul>
+                            <?= Html::a('<i class="fa fa-commenting-o"></i> <span>Testimonials</span>', ['/cms/testimonials/index'], ['class' => 'title']) ?>
                         </li>
                         <li class="<?= $controler == 'contacts-info' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-address-card"></i> Contact Info', ['/cms/contacts-info/update'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-address-card"></i> <span>Contact Info</span>', ['/cms/contacts-info/update'], ['class' => 'title']) ?>
                         </li>
                         <li class="treeview <?= $controler == 'contact-enquiry' || $controler == 'news-letter' ? 'active' : '' ?>">
                             <a href="">
@@ -185,13 +145,10 @@ $controler = Yii::$app->controller->id;
                             </ul>
                         </li>
                         <li class="<?= $controler == 'baner-images' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-image"></i> Baner Images', ['/cms/baner-images/update'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-image"></i> <span>Baner Images</span>', ['/cms/baner-images/update'], ['class' => 'title']) ?>
                         </li>
                         <li class="<?= $controler == 'meta-tags' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-tags"></i> Meta Tags', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li class="<?= $controler == 'resume' ? 'active' : '' ?>">
-                            <?= Html::a('<i class="fa fa-file"></i> Resumes', ['/cms/resume/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-tags"></i> <span>Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
                         </li>
                     </ul>
                 </section>
@@ -209,8 +166,7 @@ $controler = Yii::$app->controller->id;
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.4.0
                 </div>
-                <strong>Copyright &copy; 2018-2019 MGVISION.</strong> All rights
-                reserved.
+                <strong>Copyright &copy; <?= date('Y') ?> Coral Aroma.</strong> All rights reserved.
             </footer>
             <div class="control-sidebar-bg"></div>
         </div>

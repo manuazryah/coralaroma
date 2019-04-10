@@ -1,0 +1,181 @@
+//BLOG STYLE
+
+#blog_page
+  #blog-list
+    padding: 105px 0
+  .blog-box
+    border: 1px solid #e4e4e4
+    position: relative
+    padding: 10px 10px 30px 10px
+    background: #FFF
+    z-index: 1
+    text-align: center
+    margin-bottom: 30px
+    &::before
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 50px
+      border-top: 1px solid $basecolor
+      border-left: 1px solid $basecolor
+      border-right: 1px solid $basecolor
+      content: ""
+      z-index: -1
+      transition: .7s
+    &::after
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 50px
+      border-bottom: 1px solid $basecolor
+      border-left: 1px solid $basecolor
+      border-right: 1px solid $basecolor
+      content: ""
+      z-index: -1
+      transition: .7s
+    &:hover
+      &::after
+        height: 100%
+    .img-box
+      position: relative
+      overflow: hidden
+      img
+        display: block
+        margin: 0 auto
+        transition: .7s
+    .head
+      font-size: 16px
+      font-weight: 600
+      min-height: 35px
+      margin-top: 30px
+      letter-spacing: 2px
+      line-height: 22px
+    p
+      color: #6f6f6f
+    .link
+      padding: 10px 20px
+      display: inline-block
+      transition: .7s
+      background: $basecolor
+      text-transform: uppercase
+      letter-spacing: 3px
+      color: #FFF
+      font-family: 'Raleway',sans-serif
+      margin-top: 10px
+      &:hover
+        background: $basecolor2
+
+  #blog-dtl
+    padding-top: 105px
+    padding-bottom: 105px
+    .news-title
+      font-size: 16px
+      font-weight: 600
+      color: rgb(21, 21, 21)
+      line-height: 1.563
+      margin-bottom: 25px
+
+    .news-header
+      margin-bottom: 15px
+
+    .author-dtl
+      .author
+        display: inline-block
+        padding-right: 30px
+        position: relative
+        &::after
+          content: ""
+          position: absolute
+          right: 0px
+          top: 25%
+          width: 1px
+          height: 21px
+          background: rgb(229, 229, 229)
+        .img-box
+          width: 23px
+          height: 23px
+          border-radius: 50%
+          overflow: hidden
+          display: inline-block
+          margin-right: 15px
+          float: left
+          img
+            border-radius: 50%
+
+        p, span
+          display: inline-block
+          margin-bottom: 0px
+          font-size: 12px
+          font-weight: 400
+          color: rgb(108, 108, 108)
+          line-height: 1.667
+          padding: 1px 0px
+          span
+            color: rgb(17, 17, 17)
+            font-weight: 500
+
+      .date
+        padding-left: 25px
+        margin-left: 30px
+        background: url('../images/icons/calendar.png') no-repeat center left
+        background-size: contain
+        display: inline-block
+        font-size: 12px
+        font-weight: 400
+        color: rgb(108, 108, 108)
+        line-height: 1.667
+
+    .news-cntnt
+      img
+        margin-bottom: 50px
+
+    .related-news
+      border: 1px solid #e1e1e1
+      margin-bottom: 30px
+      @media only screen and (max-width: 992px)
+        margin-top: 50px
+      .title
+        color: #333
+        text-transform: uppercase
+        font-size: 15px
+        border-bottom: 1px solid #e1e1e1
+        padding-bottom: 10px
+        font-weight: 600
+        padding: 15px
+        letter-spacing: 1px
+
+      .list
+        border-bottom: 1px solid #e1e1e1
+        padding: 15px
+        margin-bottom: 15px
+        &:last-child
+          border-bottom: 0px
+          margin-bottom: 0px
+        &::after
+          content: ""
+          display: flex
+          clear: both
+
+        .img-box
+          display: inline-block
+          width: 130px
+          float: left
+
+        .box-content
+          width: calc(100% - 130px)
+          float: left
+          padding-left: 15px
+        .post-title
+          font-size: 13px
+          color: rgb(58, 58, 58)
+          line-height: 1.366
+          font-weight: 500
+      .read-more
+        font-size: 11px
+        display: block
+        padding-bottom: 8px
+        margin-top: 10px
+        &:hover
+          color: $basecolor

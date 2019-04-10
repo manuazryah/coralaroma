@@ -1,0 +1,108 @@
+//CONTACT
+
+/************************************CONTACT_PAGE***************************/
+#contact-info
+  overflow: hidden
+  .contact-details
+    padding: 120px
+    padding-left: 15px
+    @media (max-width:1200px) and (min-width:992px)
+      padding-right: 0px
+
+    .main_head
+      margin-bottom: 55px
+      .sub-head, .head
+        color: white
+      &::after
+        background: $basecolor2
+  .left-sec
+    background: $basecolor
+    position: relative
+    &::before
+      content: ""
+      position: absolute
+      left: -200%
+      top: 0px
+      width: 200%
+      height: 100%
+      background: $basecolor
+    @media only screen and (max-width:992px)
+      &::after
+        content: ""
+        position: absolute
+        right: -200%
+        top: 0px
+        width: 200%
+        height: 100%
+        background: $basecolor
+  .contact-details
+    .box
+      display: block
+      clear: both
+      margin-bottom: 30px
+      .title
+        font-size: 14px
+        font-weight: 600
+        line-height: 30px
+        color: rgb(41, 54, 63)
+      p
+        font-size: 13px
+        line-height: 20px
+        color: rgb(255, 255, 255)
+      a
+        font-size: 14px
+        line-height: 20px
+        color: rgb(255, 255, 255)
+      a.bold
+        font-size: 20px
+        font-weight: 600
+        line-height: 27px
+        color: rgb(255, 255, 255)
+    .social-icon
+      margin-top: 20px
+      li
+        display: inline-block
+        margin-right: 10px
+        &:last-child
+          margin-right: 0px
+      a
+        background: rgb(130, 182, 61)
+        border: 1px solid rgb(153, 204, 83)
+        border-radius: 3px
+        width: 32px
+        height: 32px
+        text-align: center
+        font-size: 14px
+        line-height: 29px
+        font-weight: 500
+        color: white
+        &:hover
+          background: $basecolor2
+
+  .right-sec
+    padding-left: 120px
+    padding-top: 105px
+    @media only screen and (max-width:992px)
+      padding-left: 15px
+      margin-bottom: 90px
+    .info
+      font-size: 14px
+      color: rgb(113, 113, 113)
+      line-height: normal
+      margin-bottom: 45px
+    .form-head
+      font-weight: 600
+    form
+      position: absolute
+      left: 120px
+      right: 0px
+      width: 100%
+      background-color: rgb(255, 255, 255)
+      box-shadow: 7.981px 15.01px 40px 0px rgba(0, 0, 0, 0.1)
+      height: fit-content
+      padding: 70px 65px 45px
+      @media only screen and (max-width:992px)
+        position: unset
+#contact-map
+  filter: gray
+  -webkit-filter: grayscale(99%)

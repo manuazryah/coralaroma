@@ -8,12 +8,11 @@ use Yii;
  * This is the model class for table "contacts_info".
  *
  * @property int $id
- * @property string $contact_message
  * @property string $address
- * @property string $post_box
  * @property string $phone
+ * @property string $whatsapp
+ * @property string $fax
  * @property string $email
- * @property string $web
  * @property string $map
  * @property int $status
  * @property int $CB
@@ -35,13 +34,12 @@ class ContactsInfo extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['contact_message', 'address', 'map'], 'string'],
-            [['contact_message', 'address', 'map', 'phone', 'email', 'web', 'mobile'], 'required'],
+            [['address', 'map'], 'string'],
             [['status', 'CB', 'UB'], 'integer'],
+            [['address', 'map', 'phone', 'whatsapp', 'fax', 'email'], 'required'],
             [['DOC', 'DOU'], 'safe'],
-            [['post_box'], 'string', 'max' => 50],
-            [['phone'], 'string', 'max' => 25],
-            [['email', 'web'], 'string', 'max' => 100],
+            [['phone', 'whatsapp'], 'string', 'max' => 25],
+            [['fax', 'email'], 'string', 'max' => 100],
         ];
     }
 
@@ -51,13 +49,11 @@ class ContactsInfo extends \yii\db\ActiveRecord {
     public function attributeLabels() {
         return [
             'id' => 'ID',
-            'contact_message' => 'Contact Message',
             'address' => 'Address',
-            'post_box' => 'Post Box',
-            'phone' => 'Land Phone Number',
-            'mobile' => 'Mobile Number',
+            'phone' => 'Phone',
+            'whatsapp' => 'Whatsapp',
+            'fax' => 'Fax',
             'email' => 'Email',
-            'web' => 'Web',
             'map' => 'Map',
             'status' => 'Status',
             'CB' => 'C B',

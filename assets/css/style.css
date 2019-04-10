@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 9, 2019, 4:50:09 PM
+    Author     : user
+*/
+#blog_page .blog-box .head {
+    min-height: 45px;
+}
+#blog_page .blog-box p {
+    min-height: 72px;
+    max-height: 72px;
+    overflow: hidden;
+}
+#email-alert{
+    color: #8dc63f;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

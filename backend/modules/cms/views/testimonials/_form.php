@@ -22,6 +22,21 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'message')->textarea(['rows' => 6]) ?>
         </div>
         <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 75x75 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?php
+            if ($model->isNewRecord)
+                echo "";
+            else {
+                if (!empty($model->image)) {
+                    ?>
+
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/testimonial/<?= $model->id ?>/image.<?= $model->image; ?>?<?= rand() ?>"/>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
             <?= $form->field($model, 'status')->dropDownList(['1' => 'Enabled', '0' => 'Disabled']) ?>
         </div>
     </div>

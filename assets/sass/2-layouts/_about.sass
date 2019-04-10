@@ -1,0 +1,248 @@
+//ABOUT_PAGE
+
+/******************************ABOUT_PAGE****************************
+.inner-page
+  #banner
+    background-position: center center !important
+    background-size: cover !important
+    position: relative
+    &::after
+      content: ""
+      position: absolute
+      left: 0px
+      top: 0px
+      background: #000
+      width: 100%
+      height: 100%
+      opacity: 0.6
+  .banner-content
+    text-align: center
+    padding-top: 70px
+    padding-bottom: 45px
+    width: 100%
+    position: relative
+    margin: 115px 0px
+    z-index: 1
+    .page-title
+      font-size: 45px
+      color: rgb(255, 255, 255)
+      font-weight: 800
+      text-transform: uppercase
+      line-height: 60px
+      @media only screen and (max-width:768px)
+        font-size: 32px
+        line-height: 32px
+      @media only screen and (max-width:468px)
+        font-size: 24px
+        line-height: 22px
+    .breadcrumb
+      background: none
+      margin: 0px
+      display: block
+      padding: 0px
+      margin-top: 10px
+    .breadcrumb-item
+      font-size: 12px
+      color: rgb(255, 255, 255)
+      line-height: normal
+      display: inline-block
+      position: relative
+      padding: 0px 9px
+      padding-right: 10px
+      &::before
+        content: "|"
+        position: absolute
+        right: -3px
+        color: white
+      &:last-child
+        padding-right: 0px
+        &::before
+          display: none
+      a
+        font-size: 12px
+        color: $basecolor
+
+    &::before
+      content: ""
+      position: absolute
+      top: 0px
+      margin: 0 auto
+      left: 0px
+      right: 0px
+      background: url(../images/icons/bell-top.png) no-repeat center
+      background-size: cover
+      width: 75px
+      height: 58px
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0px
+      margin: 0 auto
+      left: 0px
+      right: 0px
+      background: url(../images/icons/bell-foot.png) no-repeat center
+      background-size: cover
+      width: 106px
+      height: 32px
+
+
+/************Y_AROMA**************/
+#Y-Aroma
+  background: $basecolor2
+  padding: 85px 0px
+  .heading
+    float: right
+    text-align: right
+    padding-top: 15px
+    padding-bottom: 40px
+    padding-right: 38px
+    border-right: 2px solid $basecolor
+    margin: 20px 0px
+    margin-right: 35px
+    position: relative
+    @media only screen and (max-width: 992px)
+      float: none
+      text-align: left
+      border-right: 0px
+      padding-bottom: 20px
+      margin-bottom: 40px
+      padding-right: 0px
+      margin-right: 0px
+      &::after
+        content: ""
+        position: absolute
+        bottom: 0px
+        left: 0px
+        width: 250px
+        height: 2px
+        background: $basecolor
+    .sub
+      font-size: 40px
+      line-height: 48px
+      color: rgb(255, 255, 255)
+      font-weight: 400
+    .title
+      font-size: 40px
+      line-height: 48px
+      color: rgb(255, 255, 255)
+      font-weight: 900
+  .content
+    @media only screen and (min-width: 992px)
+      padding-right: 155px
+    p
+      color: rgb(141, 139, 139)
+
+/***************CEO_MESSAGE*************/
+#ceo-message
+  padding: 105px 0px
+  .heading
+    padding-top: 95px
+    padding-right: 80px
+    text-align: right
+    text-transform: capitalize
+    @media (max-width: 992px) and (min-width: 768px)
+      padding-right: 0px
+      padding-left: 60px
+      text-align: left
+      margin-bottom: 55px
+    @media only screen and (max-width: 768px)
+      padding-right: 0px
+      padding-left: 0px
+      text-align: left
+      margin-bottom: 55px
+    &::before
+      content: ""
+      position: absolute
+      top: 0px
+      right: 95px
+      background: url(../images/icons/ceo-msg-icon.png)
+      width: 60px
+      height: 55px
+      @media (max-width: 992px) and (min-width: 768px)
+        right: auto
+        left: 70px
+      @media only screen and (max-width: 768px)
+        right: auto
+        left: 20px
+    .big
+      font-size: 50px
+      line-height: 48px
+      font-weight: 400
+      color: #4f5459
+    .medium
+      font-size: 40px
+      line-height: 48px
+      font-weight: 400
+      color: #4f5459
+    .small
+      font-size: 35px
+      line-height: 48px
+      font-weight: 400
+      color: #4f5459
+  .right-sec
+    padding-left: 73px
+    padding-right: 140px
+    @media (max-width: 992px) and (min-width: 768px)
+      padding-right: 70px
+    @media only screen and (max-width: 768px)
+      padding-left: 15px
+      padding-right: 15px
+  .story-box
+    box-shadow: 0px 12px 23.28px 0.72px rgba(0, 0, 0, 0.13)
+    background: #fff
+    padding-top: 45px
+    position: relative
+    margin-top: 15px
+    @media only screen and (max-width: 768px)
+      padding-top: 70px
+  .content
+    .ceo
+      background-color: rgb(243, 248, 250)
+      box-shadow: 0px 8px 12.61px 0.39px rgba(0, 0, 0, 0.19)
+      position: absolute
+      top: 25%
+      left: -45px
+      width: 90px
+      @media only screen and (max-width: 768px)
+        top: -40px
+        left: 30px
+  .info
+    font-size: 13px
+    line-height: 20px
+    font-weight: 400
+    color: #4f5459
+    margin-bottom: 55px
+    padding-right: 30px
+    padding-left: 90px
+    @media only screen and (max-width: 768px)
+      padding-left: 30px
+  .story-footer
+    background: $basecolor
+    color: #fff
+    padding: 15px 0 15px 85px
+    position: relative
+    @media only screen and (max-width: 768px)
+      padding-left: 30px
+    h5
+      font-size: 14px
+      color: #fff
+      line-height: 17px
+      font-weight: 500
+      text-transform: capitalize
+      margin-bottom: 5px
+    h6
+      font-size: 12px
+      color: #fff
+      line-height: 17px
+      font-weight: 500
+      text-transform: capitalize
+    &::after
+      content: ""
+      position: absolute
+      left: 65px
+      bottom: -25px
+      width: 19px
+      height: 25px
+      background: url(../images/icons/ceo-footer-after.png) no-repeat
+      background-size: contain
+      display: inline-block

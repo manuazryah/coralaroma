@@ -83,25 +83,17 @@ class BanerImagesController extends Controller {
         $model_ = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
             $about = UploadedFile::getInstance($model, 'about');
-            $services = UploadedFile::getInstance($model, 'services');
-            $why_cda = UploadedFile::getInstance($model, 'why_cda');
+            $scent_marketing = UploadedFile::getInstance($model, 'scent_marketing');
+            $products = UploadedFile::getInstance($model, 'products');
             $blog = UploadedFile::getInstance($model, 'blog');
-            $career = UploadedFile::getInstance($model, 'career');
-            $our_team = UploadedFile::getInstance($model, 'our_team');
-            $news = UploadedFile::getInstance($model, 'news');
             $contact_us = UploadedFile::getInstance($model, 'contact_us');
-            $consultation = UploadedFile::getInstance($model, 'consultation');
             $model->about = !empty($about) ? $about->extension : $model_->about;
-            $model->services = !empty($services) ? $services->extension : $model_->services;
-            $model->why_cda = !empty($why_cda) ? $why_cda->extension : $model_->why_cda;
+            $model->scent_marketing = !empty($scent_marketing) ? $scent_marketing->extension : $model_->scent_marketing;
+            $model->products = !empty($products) ? $products->extension : $model_->products;
             $model->blog = !empty($blog) ? $blog->extension : $model_->blog;
             $model->contact_us = !empty($contact_us) ? $contact_us->extension : $model_->contact_us;
-            $model->our_team = !empty($our_team) ? $our_team->extension : $model_->our_team;
-            $model->news = !empty($news) ? $news->extension : $model_->news;
-            $model->career = !empty($career) ? $career->extension : $model_->career;
-            $model->consultation = !empty($consultation) ? $consultation->extension : $model_->consultation;
             if ($model->save()) {
-                $this->Upload($about, $services, $why_cda, $blog, $contact_us, $our_team, $news, $career, $consultation);
+                $this->Upload($about, $scent_marketing, $products, $blog, $contact_us);
                 Yii::$app->session->setFlash('success', "Baner images updated successfully");
             }
         } return $this->render('update', [
@@ -109,19 +101,19 @@ class BanerImagesController extends Controller {
         ]);
     }
 
-    public function Upload($about, $services, $why_cda, $blog, $contact_us, $our_team, $news, $career, $consultation) {
+    public function Upload($about, $scent_marketing, $products, $blog, $contact_us) {
         $paths = Yii::$app->basePath . '/../uploads/baner_images/';
         if (!empty($about)) {
             $name = 'about.' . $about->extension;
             $about->saveAs($paths . '/' . $name);
         }
-        if (!empty($services)) {
-            $name = 'services.' . $services->extension;
-            $services->saveAs($paths . '/' . $name);
+        if (!empty($scent_marketing)) {
+            $name = 'scent_marketing.' . $scent_marketing->extension;
+            $scent_marketing->saveAs($paths . '/' . $name);
         }
-        if (!empty($why_cda)) {
-            $name = 'why_cda.' . $why_cda->extension;
-            $why_cda->saveAs($paths . '/' . $name);
+        if (!empty($products)) {
+            $name = 'products.' . $products->extension;
+            $products->saveAs($paths . '/' . $name);
         }
         if (!empty($blog)) {
             $name = 'blog.' . $blog->extension;
@@ -130,22 +122,6 @@ class BanerImagesController extends Controller {
         if (!empty($contact_us)) {
             $name = 'contact_us.' . $contact_us->extension;
             $contact_us->saveAs($paths . '/' . $name);
-        }
-        if (!empty($our_team)) {
-            $name = 'our_team.' . $our_team->extension;
-            $our_team->saveAs($paths . '/' . $name);
-        }
-        if (!empty($news)) {
-            $name = 'news.' . $news->extension;
-            $news->saveAs($paths . '/' . $name);
-        }
-        if (!empty($career)) {
-            $name = 'career.' . $career->extension;
-            $career->saveAs($paths . '/' . $name);
-        }
-        if (!empty($consultation)) {
-            $name = 'consultation.' . $consultation->extension;
-            $consultation->saveAs($paths . '/' . $name);
         }
         return true;
     }

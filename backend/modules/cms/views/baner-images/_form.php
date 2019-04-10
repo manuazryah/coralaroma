@@ -28,30 +28,30 @@ use yii\widgets\ActiveForm;
             ?>
         </div>
         <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'services')->fileInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'scent_marketing')->fileInput(['maxlength' => true]) ?>
             <?php
             if ($model->isNewRecord)
                 echo "";
             else {
-                if (!empty($model->services)) {
+                if (!empty($model->scent_marketing)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/services.<?= $model->services; ?>?<?= rand() ?>" width = "100%" height="100px"/>
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/scent_marketing.<?= $model->scent_marketing; ?>?<?= rand() ?>" width = "100%" height="100px"/>
                     <?php
                 }
             }
             ?>
         </div>
         <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'why_cda')->fileInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'products')->fileInput(['maxlength' => true]) ?>
             <?php
             if ($model->isNewRecord)
                 echo "";
             else {
-                if (!empty($model->why_cda)) {
+                if (!empty($model->products)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/why_cda.<?= $model->why_cda; ?>?<?= rand() ?>" width = "100%" height="100px"/>
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/products.<?= $model->products; ?>?<?= rand() ?>" width = "100%" height="100px"/>
                     <?php
                 }
             }
@@ -82,66 +82,6 @@ use yii\widgets\ActiveForm;
                     ?>
 
                     <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/contact_us.<?= $model->contact_us; ?>?<?= rand() ?>" width = "100%" height="100px"/>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'our_team')->fileInput(['maxlength' => true]) ?>
-            <?php
-            if ($model->isNewRecord)
-                echo "";
-            else {
-                if (!empty($model->our_team)) {
-                    ?>
-
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/our_team.<?= $model->our_team; ?>?<?= rand() ?>" width = "100%" height="100px"/>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'news')->fileInput(['maxlength' => true]) ?>
-            <?php
-            if ($model->isNewRecord)
-                echo "";
-            else {
-                if (!empty($model->news)) {
-                    ?>
-
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/news.<?= $model->news; ?>?<?= rand() ?>" width = "100%" height="100px"/>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'career')->fileInput(['maxlength' => true]) ?>
-            <?php
-            if ($model->isNewRecord)
-                echo "";
-            else {
-                if (!empty($model->career)) {
-                    ?>
-
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/career.<?= $model->career; ?>?<?= rand() ?>" width = "100%" height="100px"/>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>
-            <?= $form->field($model, 'consultation')->fileInput(['maxlength' => true]) ?>
-            <?php
-            if ($model->isNewRecord)
-                echo "";
-            else {
-                if (!empty($model->consultation)) {
-                    ?>
-
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/baner_images/consultation.<?= $model->consultation; ?>?<?= rand() ?>" width = "100%" height="100px"/>
                     <?php
                 }
             }

@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\HomeContents */
 
-$this->title = 'Update Home Contents';
+$this->title = 'Update Home Contents: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Home Contents', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="row">
@@ -20,12 +20,11 @@ $this->params['breadcrumbs'][] = 'Update';
 
             </div>
             <div class="panel-body">
+                <?=  Html::a('<i class="fa fa-list"></i><span> Manage Home Contents</span>', ['index'], ['class' => 'btn btn-block btn-info btn-sm']) ?>
                 <div class="home-contents-create">
-                    <?=
-                    $this->render('_form', [
-                        'model' => $model,
-                    ])
-                    ?>
+                    <?= $this->render('_form', [
+                    'model' => $model,
+                    ]) ?>
                 </div>
             </div>
         </div>

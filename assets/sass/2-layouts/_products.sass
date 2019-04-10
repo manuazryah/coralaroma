@@ -1,0 +1,231 @@
+//PRODUCTS
+
+/**************************************PRODUCTS_CATEGORY********************************/
+#products_page
+  #main_category
+    padding-top: 105px
+    padding-bottom: 90px
+
+  #area-size
+    padding-bottom: 165px
+    &::after
+      content: ""
+      clear: both
+      display: flex
+    .sizing
+      width: calc(100% / 3)
+      float: left
+      padding: 0px 1px
+      height: 525px
+      @media only screen and (max-width:768px)
+        width: 100%
+        padding: 1px 0px
+    .box
+      background-repeat: no-repeat !important
+      background-size: cover !important
+      width: 100%
+      height: 100%
+      position: relative
+      overflow: hidden
+      .overlay
+        position: absolute
+        width: 100%
+        height: 25%
+        left: 0px
+        bottom: 0px
+        transition: ease-in-out all .5s
+        text-align: center
+        background: linear-gradient(rgba(3, 23, 37, 0), rgb(3, 23, 37))
+      &:hover
+        .overlay
+          height: 100%
+        .content
+          bottom: 65px
+
+      .content
+        position: absolute
+        width: 100%
+        bottom: -60px
+        transition: ease-in-out all .5s
+      .title
+        font-size: 35px
+        color: rgb(255, 255, 255)
+        text-transform: uppercase
+        line-height: 38px
+        margin-bottom: 5px
+        @media (max-width: 992px) and (min-width: 768px)
+          font-size: 25px
+          line-height: 28px
+      .sub
+        font-size: 16px
+        color: $basecolor
+        text-transform: uppercase
+        line-height: 38px
+        @media (max-width: 992px) and (min-width: 768px)
+          font-size: 12px
+          line-height: 28px
+      .read-more
+        display: block
+        margin: 0 auto
+        margin-top: 75px
+        color: white
+        letter-spacing: 2px
+        @media (max-width: 992px) and (min-width: 768px)
+          margin-top: 45px
+        &::after
+          right: 0px
+          margin: 0 auto
+
+
+  #sub_category
+    padding: 105px 0px
+    .pro-list
+      margin-top: 75px
+    .pro-box
+      border: 1px solid rgb(235, 235, 235)
+      background-color: rgb(255, 255, 255)
+      transition: ease-in-out all .3s
+      margin-bottom: 30px
+      &:hover
+        box-shadow: 7.981px 15.01px 40px 0px rgba(0, 0, 0, 0.1)
+        .read-more
+          color: $basecolor
+          &::after
+            width: 100%
+    .img-box
+      text-align: center
+      padding: 15px
+      min-height: 280px
+      max-height: 280px
+      overflow: hidden
+      &::before
+        content: ""
+        display: inline-block
+        height: 100%
+        vertical-align: middle
+      img
+        vertical-align: middle
+    .content
+      padding: 35px 15px 0px
+      text-align: center
+      .title
+        font-size: 16px
+        font-weight: 600
+        color: rgb(31, 31, 31)
+        line-height: normal
+      .read-more
+        display: block
+        margin: 0 auto
+        margin-top: 25px
+        color: rgb(90, 89, 89)
+        letter-spacing: 2px
+        &::after
+          right: 0px
+          margin: 0 auto
+
+
+
+#product-gallery
+  overflow: hidden
+  padding-top: 105px
+  padding-bottom: 75px
+  .prodtl
+    z-index: 1
+    border-left: 1px solid rgb(243, 243, 243)
+    padding-left: 90px
+    @media only screen and (max-width:992px)
+      padding-left: 15px
+      padding-top: 90px
+      margin-top: 45px
+      border-left: 0px
+      border-top: 1px solid rgb(243, 243, 243)
+    .pro-name
+      font-size: 28px
+      font-weight: 600
+      color: rgb(3, 23, 37)
+      line-height: normal
+      padding-bottom: 23px
+      margin-bottom: 35px
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        left: 0px
+        bottom: 0px
+        width: 75px
+        height: 1px
+        background: $basecolor
+    .spec
+      .title
+        font-size: 18px
+        font-weight: 500
+        color: rgb(98, 138, 44)
+        line-height: normal
+        margin-bottom: 25px
+      ul
+        padding: 0px
+        margin: 0px
+      li
+        font-size: 13px
+        font-weight: 600
+        color: rgb(3, 23, 37)
+        line-height: 2.308
+        background: url('../images/icons/grn-check.png') no-repeat top 10px left
+        padding-left: 27px
+    .contact-btn
+      background-color: rgb(3, 23, 37)
+      width: 223px
+      height: 44px
+      font-size: 10px
+      color: rgb(255, 255, 255)
+      font-weight: 600
+      text-transform: uppercase
+      line-height: 26px
+      letter-spacing: 2px
+      display: block
+      padding: 10px
+      text-align: center
+      margin-top: 45px
+      &:hover
+        background: $basecolor
+#details
+  background: rgb(246, 246, 246)
+  padding-top: 85px
+  padding-bottom: 75px
+  .listing
+    margin-top: 60px
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    &::after
+      content: ""
+      display: flex
+      clear: both
+  .list_item
+    -ms-flex: 0 0 33.333333%
+    flex: 0 0 33.333333%
+    max-width: 33.333333%
+    float: left
+    margin-bottom: 40px
+    @media (max-width:992px) and (min-width:576px)
+      -ms-flex: 0 0 50%
+      flex: 0 0 50%
+      max-width: 50%
+    @media only screen and (max-width:576px)
+      -ms-flex: 0 0 100%
+      flex: 0 0 100%
+      max-width: 100%
+    .icon-box
+      display: inline-block
+      float: left
+      width: 50px
+    .title
+      display: inline-block
+      float: left
+      width: calc(100% - 50px)
+      padding-left: 15px
+      font-size: 15px
+      font-weight: 600
+      color: rgb(34, 30, 31)
+      line-height: 28px

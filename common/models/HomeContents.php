@@ -16,12 +16,16 @@ use Yii;
  * @property string $linkedin_link
  * @property string $youtube_link
  * @property string $welcome_content
- * @property string $ceo_name
- * @property string $ceo_message
- * @property string $service_description
- * @property string $middle_title
- * @property string $middle_description
- * @property string $footer_about_content
+ * @property int $year_of_experience
+ * @property string $welcome_image
+ * @property string $title
+ * @property string $description
+ * @property string $title1
+ * @property string $description1
+ * @property string $image1
+ * @property string $title2
+ * @property string $description2
+ * @property string $image2
  * @property string $footer_address
  * @property int $status
  * @property int $CB
@@ -43,15 +47,12 @@ class HomeContents extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['welcome_content', 'ceo_message', 'service_description', 'middle_description', 'footer_about_content', 'footer_address'], 'string'],
-            [['phone', 'top_title', 'email', 'ceo_name', 'middle_title', 'welcome_content', 'ceo_message', 'service_description', 'middle_description', 'footer_about_content', 'footer_address', 'mobile'], 'required'],
-            [['status', 'CB', 'UB'], 'integer'],
-            [['DOC', 'DOU'], 'safe'],
-            [['top_title', 'email', 'ceo_name', 'middle_title'], 'string', 'max' => 100],
+            [['welcome_content', 'footer_address'], 'string'],
+            [['year_of_experience', 'status', 'CB', 'UB'], 'integer'],
+            [['DOC', 'DOU' . 'google_plus', 'pinterest'], 'safe'],
+            [['top_title', 'email', 'title', 'description', 'title1', 'title2'], 'string', 'max' => 100],
             [['phone'], 'string', 'max' => 25],
-            [['facebook_link', 'twitter_link', 'linkedin_link', 'youtube_link'], 'string', 'max' => 255],
-            [['ceo_image'], 'file', 'extensions' => 'jpg, png,jpeg'],
-            [['brochure'], 'file', 'extensions' => 'pdf'],
+            [['facebook_link', 'twitter_link', 'linkedin_link', 'youtube_link', 'description1', 'description2'], 'string', 'max' => 255],
         ];
     }
 
@@ -62,20 +63,23 @@ class HomeContents extends \yii\db\ActiveRecord {
         return [
             'id' => 'ID',
             'top_title' => 'Top Title',
-            'phone' => 'Land Phone Number',
-            'mobile' => 'Mobile Number',
+            'phone' => 'Phone',
             'email' => 'Email',
             'facebook_link' => 'Facebook Link',
             'twitter_link' => 'Twitter Link',
             'linkedin_link' => 'Linkedin Link',
-            'youtube_link' => 'Instagram Link',
+            'youtube_link' => 'Youtube Link',
             'welcome_content' => 'Welcome Content',
-            'ceo_name' => 'CEO Name',
-            'ceo_message' => 'CEO Message',
-            'service_description' => 'Service Description',
-            'middle_title' => 'Middle Title',
-            'middle_description' => 'Middle Description',
-            'footer_about_content' => 'Footer About Content',
+            'year_of_experience' => 'Year Of Experience',
+            'welcome_image' => 'Welcome Image',
+            'title' => 'Title',
+            'description' => 'Description',
+            'title1' => 'Title1',
+            'description1' => 'Description1',
+            'image1' => 'Image1',
+            'title2' => 'Title2',
+            'description2' => 'Description2',
+            'image2' => 'Image2',
             'footer_address' => 'Footer Address',
             'status' => 'Status',
             'CB' => 'C B',

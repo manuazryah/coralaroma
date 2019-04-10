@@ -36,6 +36,7 @@ class Testimonials extends \yii\db\ActiveRecord {
             [['author', 'designation', 'message'], 'required'],
             [['DOC', 'DOU'], 'safe'],
             [['author', 'designation'], 'string', 'max' => 100],
+            [['image'], 'file', 'extensions' => 'jpg, png,jpeg'],
         ];
     }
 

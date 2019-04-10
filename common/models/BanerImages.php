@@ -43,8 +43,7 @@ class BanerImages extends \yii\db\ActiveRecord {
         return [
             [['status', 'CB', 'UB'], 'integer'],
             [['DOC', 'DOU'], 'safe'],
-            [['about', 'services', 'why_cda', 'blog', 'contact_us'], 'string', 'max' => 100],
-            [['about', 'services', 'why_cda', 'blog', 'contact_us', 'our_team', 'news', 'career', 'consultation'], 'file', 'extensions' => 'jpg, png,jpeg'],
+            [['about', 'scent_marketing', 'products', 'blog', 'contact_us'], 'file', 'extensions' => 'jpg, png,jpeg'],
         ];
     }
 
@@ -55,18 +54,6 @@ class BanerImages extends \yii\db\ActiveRecord {
         return [
             'id' => 'ID',
             'about' => 'About',
-            'mgvision_difference' => 'Mgvision Difference',
-            'sustainability' => 'Sustainability',
-            'security_market' => 'Security Market',
-            'customer_stories' => 'Customer Stories',
-            'corporate_governance' => 'Corporate Governance',
-            'products_and_solutions' => 'Products And Solutions',
-            'where_to_buy' => 'Where To Buy',
-            'search_result' => 'Search Result',
-            'partners' => 'Partners',
-            'careers' => 'Careers',
-            'news_events' => 'News Events',
-            'contact' => 'Contact',
             'status' => 'Status',
             'CB' => 'C B',
             'UB' => 'U B',

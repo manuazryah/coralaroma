@@ -33,17 +33,25 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'welcome_content') ?>
 
-    <?php // echo $form->field($model, 'ceo_name') ?>
+    <?php // echo $form->field($model, 'year_of_experience') ?>
 
-    <?php // echo $form->field($model, 'ceo_message') ?>
+    <?php // echo $form->field($model, 'welcome_image') ?>
 
-    <?php // echo $form->field($model, 'service_description') ?>
+    <?php // echo $form->field($model, 'title') ?>
 
-    <?php // echo $form->field($model, 'middle_title') ?>
+    <?php // echo $form->field($model, 'description') ?>
 
-    <?php // echo $form->field($model, 'middle_description') ?>
+    <?php // echo $form->field($model, 'title1') ?>
 
-    <?php // echo $form->field($model, 'footer_about_content') ?>
+    <?php // echo $form->field($model, 'description1') ?>
+
+    <?php // echo $form->field($model, 'image1') ?>
+
+    <?php // echo $form->field($model, 'title2') ?>
+
+    <?php // echo $form->field($model, 'description2') ?>
+
+    <?php // echo $form->field($model, 'image2') ?>
 
     <?php // echo $form->field($model, 'footer_address') ?>
 
