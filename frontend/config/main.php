@@ -43,6 +43,8 @@ return [
                 'recipient/<page>' => 'site/recipient',
                 'scent-marketing/<scent>' => 'site/scent-marketing-details',
                 'blog/<page>' => 'site/blog-details',
+                'products/<product>' => 'site/products-list',
+                'product/<product>' => 'site/product-detail',
             ],
         ],
         'assetManager' => [

@@ -144,11 +144,59 @@ class SiteController extends Controller {
     public function actionProducts() {
         $baner_image = \common\models\BanerImages::findOne(1);
         $meta_tags = \common\models\MetaTags::find()->where(['id' => 4])->one();
+        $home_contents = \common\models\HomeContents::findOne(1);
+        $product_category = \common\models\ProductCategory::find()->where(['status' => 1])->limit(3)->all();
         \Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => $meta_tags->meta_keyword]);
         \Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $meta_tags->meta_description]);
         return $this->render('products', [
                     'meta_tags' => $meta_tags,
                     'baner_image' => $baner_image,
+                    'home_contents' => $home_contents,
+                    'product_category' => $product_category,
+        ]);
+    }
+
+    /**
+     * Displays Products Listing page based on product category.
+     *
+     * @return mixed
+     */
+    public function actionProductsList($product) {
+        $searchModel = new \common\models\ProductsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $baner_image = \common\models\BanerImages::findOne(1);
+        $meta_tags = \common\models\MetaTags::find()->where(['id' => 4])->one();
+        $product_category = \common\models\ProductCategory::find()->where(['canonical_name' => $product])->one();
+        if (!empty($product_category)) {
+            $dataProvider->query->andWhere(['category' => $product_category->id]);
+        }
+        $dataProvider->pagination->pageSize = 30;
+        \Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => $meta_tags->meta_keyword]);
+        \Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $meta_tags->meta_description]);
+        return $this->render('product-list', [
+                    'meta_tags' => $meta_tags,
+                    'baner_image' => $baner_image,
+                    'product_category' => $product_category,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays Products Listing page based on product category.
+     *
+     * @return mixed
+     */
+    public function actionProductDetail($product) {
+        $baner_image = \common\models\BanerImages::findOne(1);
+        $meta_tags = \common\models\MetaTags::find()->where(['id' => 4])->one();
+        $product_details = \common\models\Products::find()->where(['canonical_name' => $product])->one();
+        \Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => $meta_tags->meta_keyword]);
+        \Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $meta_tags->meta_description]);
+        return $this->render('product_detail', [
+                    'meta_tags' => $meta_tags,
+                    'baner_image' => $baner_image,
+                    'product_details' => $product_details,
         ]);
     }
 

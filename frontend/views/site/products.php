@@ -31,52 +31,33 @@ if (isset($meta_tags->meta_title) && $meta_tags->meta_title != '') {
     <section id="main_category">
         <div class="container">
             <div class="main_head">
-                <h3 class="sub-head">Coral Aroma</h3>
                 <h3 class="head">Diffuser Systems</h3>
             </div>
             <div class="pro-info">
                 <p>
-                    Coral Aroma manufactures eco-friendly Scent Diffusion products that can be connected to advanced HVAC system. These easy to maintain diffusion systems are equipped with intelligent remote technology that allows users to adjust nearly every function of system including the intensity of the fragrance. Powered with strong technological features, diffusion systems can release the scent without the assistance from any type of aromatic equipment. Cold air diffusion technology used in the device ensures thorough proliferation of fragrance in the atmosphere. The advanced technology converts the liquid scent into microscopic units without compromising the naturalness of the essential oil. Diffusion systems of Coral Aroma have been designed to complement the most intricate interiors and sophisticated infrastructures. All diffusions systems produced by Coral Aroma are guaranteed durable life-span. Production of unforgettable scents through these aesthetically appealing Diffusion systems resonates strongly with human emotions.
+                    <?= $home_contents->description2 ?>
                 </p>
             </div>
         </div>
     </section>
-
-    <section id="area-size">
-        <div class="sizing">
-            <div class="box" style="background:url('assets/images/products/diffuser-system/small-area.jpg')">
-                <div class="overlay">
-                    <div class="content">
-                        <div class="title">Small Area</div>
-                        <div class="sub">Coral Wall, s300 & k401,S200</div>
-                        <a href="#!" class="read-more">View More</a>
+    <?php if (!empty($product_category)) { ?>
+        <section id="area-size">
+            <?php foreach ($product_category as $category) { ?>
+                <div class="sizing">
+                    <div class="box" style="background:url('<?= Yii::$app->homeUrl; ?>uploads/product_category/<?= $category->id ?>/image.<?= $category->image ?>')">
+                        <div class="overlay">
+                            <div class="content">
+                                <div class="title"><?= $category->category ?></div>
+                                <div class="sub"><?= $category->description ?></div>
+                                <?= Html::a('View More', ['/site/products-list', 'product' => $category->canonical_name], ['class' => 'read-more']) ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="sizing">
-            <div class="box" style="background:url('assets/images/products/diffuser-system/medium-area.jpg')">
-                <div class="overlay">
-                    <div class="content">
-                        <div class="title">Medium Area</div>
-                        <div class="sub">Coral Trunk, S1000,S15000</div>
-                        <a href="#!" class="read-more">View More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sizing">
-            <div class="box" style="background:url('assets/images/products/diffuser-system/large-area.jpg')">
-                <div class="overlay">
-                    <div class="content">
-                        <div class="title">Large Area</div>
-                        <div class="sub">B2000 & B5000,s3000,A2000,D5000,S4500</div>
-                        <a href="#!" class="read-more">View More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+            <?php }
+            ?>
+        </section>
+    <?php }
+    ?>
 </div>
 

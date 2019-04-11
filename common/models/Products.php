@@ -43,7 +43,7 @@ class Products extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['dimenssions', 'features', 'coverage', 'power', 'scent', 'other'], 'string'],
-            [['description', 'product_name', 'canonical_name'], 'required'],
+            [['description', 'product_name', 'canonical_name', 'category', 'meta_title', 'meta_keyword', 'meta_description'], 'required'],
             [['status', 'CB', 'UB'], 'integer'],
             [['DOC', 'DOU'], 'safe'],
             [['product_name'], 'string', 'max' => 100],

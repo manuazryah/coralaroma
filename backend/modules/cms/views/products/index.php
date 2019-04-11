@@ -22,37 +22,33 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
                 <div class="panel-body">
-                                                <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-                    
-                    <?=  Html::a('<i class="fa fa-list"></i><span> Create Products</span>', ['create'], ['class' => 'btn btn-block btn-info btn-sm']) ?>
-                                                                            <?= GridView::widget([
+                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+                    <?= Html::a('<i class="fa fa-list"></i><span> Create Products</span>', ['create'], ['class' => 'btn btn-block btn-info btn-sm']) ?>
+                    <?=
+                    GridView::widget([
                         'dataProvider' => $dataProvider,
                         'filterModel' => $searchModel,
-        'columns' => [
-                        ['class' => 'yii\grid\SerialColumn'],
-
-                                    'id',
-            'product_name',
-            'canonical_name',
-            'profile_image',
-            'gallery_images',
-            // 'colours',
-            // 'dimenssions:ntext',
-            // 'features:ntext',
-            // 'coverage:ntext',
-            // 'power:ntext',
-            // 'scent:ntext',
-            // 'other:ntext',
-            // 'status',
-            // 'CB',
-            // 'UB',
-            // 'DOC',
-            // 'DOU',
-
-                        ['class' => 'yii\grid\ActionColumn'],
+                        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn'],
+                            [
+                                'attribute' => 'profile_image',
+                                'format' => 'raw',
+                                'value' => function ($data) {
+                                    $img = '';
+                                    if (!empty($data->profile_image))
+                                        $img = '<img width="120px" src="' . Yii::$app->homeUrl . '../uploads/product/' . $data->id . '/profile/' . $data->canonical_name . '.' . $data->profile_image . '"/>';
+                                    return $img;
+                                },
+                            ],
+                            'product_name',
+                            ['class' => 'yii\grid\ActionColumn',
+                                'template' => '{update}{delete}',
+                            ],
                         ],
-                        ]); ?>
-                                                        </div>
+                    ]);
+                    ?>
+                </div>
             </div>
         </div>
     </div>

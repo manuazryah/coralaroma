@@ -21,3 +21,91 @@ and open the template in the editor.
     font-weight: 600;
     margin-bottom: 10px;
 }
+.pagination {
+    display: inline-block;
+    margin: 20px 0;
+    border-radius: 4px;
+    clear: both;
+    padding: 0 15px!important;
+    width: 100%;
+}
+.pager li, .pagination>li {
+    display: inline;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #8dc63f;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+    font-weight: 600;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #8dc63f;
+    border-color: #8dc63f;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #8dc63f;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 600;
+    outline: none;
+}
+.summary{
+    display: inline-block;
+    margin: 20px 0;
+    border-radius: 4px;
+    clear: both;
+    padding: 0 15px!important;
+    width: 100%;
+}
+#product-gallery .prodtl .spec h1, #product-gallery .prodtl .spec h2, #product-gallery .prodtl .spec h3, #product-gallery .prodtl .spec h4, #product-gallery .prodtl .spec h5, #product-gallery .prodtl .spec h6, #product-gallery .prodtl .spec h1 strong, #product-gallery .prodtl .spec h2 strong, #product-gallery .prodtl .spec h3 strong, #product-gallery .prodtl .spec h4 strong, #product-gallery .prodtl .spec h5 strong, #product-gallery .prodtl .spec h6 strong {
+    font-size: 16px;
+    font-weight: 500;
+    color: #141514;
+    line-height: normal;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+#product-gallery .prodtl .spec ul {
+    margin-bottom: 10px;
+}
+.color-spec .clr-name{
+    font-size: 20px;
+    font-weight: 600;
+    color: #031725;
+    line-height: normal;
+    padding-bottom: 23px;
+    margin-bottom: 28px;
+    position: relative;
+    margin-top: 25px;
+}
+.color-spec .color-item{
+    display: inline-block;
+    float: left;
+    margin: 0px 10px;
+}

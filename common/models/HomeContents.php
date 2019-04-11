@@ -49,10 +49,10 @@ class HomeContents extends \yii\db\ActiveRecord {
         return [
             [['welcome_content', 'footer_address'], 'string'],
             [['year_of_experience', 'status', 'CB', 'UB'], 'integer'],
-            [['DOC', 'DOU' . 'google_plus', 'pinterest'], 'safe'],
+            [['DOC', 'DOU' . 'google_plus', 'pinterest', 'description1', 'description2'], 'safe'],
             [['top_title', 'email', 'title', 'description', 'title1', 'title2'], 'string', 'max' => 100],
             [['phone'], 'string', 'max' => 25],
-            [['facebook_link', 'twitter_link', 'linkedin_link', 'youtube_link', 'description1', 'description2'], 'string', 'max' => 255],
+            [['facebook_link', 'twitter_link', 'linkedin_link', 'youtube_link'], 'string', 'max' => 255],
         ];
     }
 

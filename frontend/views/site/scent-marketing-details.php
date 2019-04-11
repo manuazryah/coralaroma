@@ -4,8 +4,8 @@
 use yii\bootstrap\Html;
 
 $this->title = '';
-if (isset($scent_details->meta_title) && $scent_details->meta_title != '') {
-    $this->title = $scent_details->meta_title;
+if (isset($scent_details->mata_title) && $scent_details->mata_title != '') {
+    $this->title = $scent_details->mata_title;
 } else {
     $this->title = 'Scent Marketing';
 }

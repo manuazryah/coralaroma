@@ -54,6 +54,7 @@ class ScentMarketing extends \yii\db\ActiveRecord {
             'content' => 'Content',
             'banner_image' => 'Banner Image',
             'status' => 'Status',
+            'mata_title' => 'Meta Title',
             'CB' => 'C B',
             'UB' => 'U B',
             'DOC' => 'D O C',

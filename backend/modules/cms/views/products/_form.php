@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Products */
@@ -14,10 +13,14 @@ use kartik\select2\Select2;
     <?= \common\components\AlertMessageWidget::widget() ?>
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
-        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+        <div class='col-md-4 col-sm-4 col-xs-12 left_padd'>
+            <?php $categories = \common\models\ProductCategory::find()->all(); ?>
+            <?= $form->field($model, 'category')->dropDownList(\yii\helpers\ArrayHelper::map($categories, 'id', 'category'), ['prompt' => '--Select--']) ?>
+        </div>
+        <div class='col-md-4 col-sm-4 col-xs-12 left_padd'>
             <?= $form->field($model, 'product_name')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+        <div class='col-md-4 col-sm-4 col-xs-12 left_padd'>
             <?= $form->field($model, 'canonical_name')->textInput(['readonly' => true]) ?>
         </div>
         <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>
@@ -123,34 +126,47 @@ use kartik\select2\Select2;
     <div class="row">
         <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
             <?= $form->field($model, 'gallery_images[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Gallery Images<i> (1080*1080)</i>') ?>
-            <?php
-            $path = Yii::getAlias('@paths') . '/product/' . $model->id . '/gallery';
-            if (count(glob("{$path}/*")) > 0) {
-                $k = 0;
-                foreach (glob("{$path}/*") as $file) {
-                    $k++;
-                    $arry = explode('/', $file);
-                    $img_nmee = end($arry);
+            <div class="row">
+                <?php
+                $path = Yii::getAlias('@paths') . '/product/' . $model->id . '/gallery';
+                if (count(glob("{$path}/*")) > 0) {
+                    $k = 0;
+                    foreach (glob("{$path}/*") as $file) {
+                        $k++;
+                        $arry = explode('/', $file);
+                        $img_nmee = end($arry);
 
-                    $img_nmees = explode('.', $img_nmee);
-                    if ($img_nmees['1'] != '') {
-                        ?>
+                        $img_nmees = explode('.', $img_nmee);
+                        if ($img_nmees['1'] != '') {
+                            ?>
 
-                        <div class = "col-md-2 img-box" id="<?= $k; ?>">
-                            <a href="<?= Yii::$app->homeUrl . '../uploads/product/' . $model->id . '/gallery/' . end($arry) ?>" target="_blank">
-                                <img src="<?= Yii::$app->homeUrl . '../uploads/product/' . $model->id . '/gallery/' . end($arry) ?>" width="50px" height="50px"></a>
-                            <a  title="Delete" class="img-remove product_image" id="<?= $model->id . "@" . $img_nmee . '@' . $k; ?>" style="cursor:pointer"><i class="fa fa-remove" style="position: absolute;left: 75px;top: 3px;"></i></a>
-                        </div>
+                            <div class = "col-md-3 img-box" id="<?= $k; ?>">
+                                <div class="news-img">
+                                    <a href="<?= Yii::$app->homeUrl . '../uploads/product/' . $model->id . '/gallery/' . end($arry) ?>" target="_blank">
+                                        <img src="<?= Yii::$app->homeUrl . '../uploads/product/' . $model->id . '/gallery/' . end($arry) ?>" width="50px" height="50px"></a>
+                                    <a  title="Delete" class="img-remove product_image" id="<?= $model->id . "@" . $img_nmee . '@' . $k; ?>" style="cursor:pointer"><i class="fa fa-remove" style="position: absolute;right: 20px;top: 3px;color: red;"></i></a>
+                                </div>
+                            </div>
 
 
-                        <?php
+                            <?php
+                        }
                     }
                 }
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
             <?= $form->field($model, 'status')->dropDownList(['1' => 'Enabled', '0' => 'Disabled']) ?>
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 3]) ?>
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'meta_description')->textarea(['rows' => 3]) ?>
         </div>
     </div>
     <div class="row">
